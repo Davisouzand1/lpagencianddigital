@@ -73,29 +73,35 @@ const Index = () => {
       {/* Serviços */}
       <section className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 text-center">
+            Nossos Serviços
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { code: "ADHP", name: "Arquitetura Digital de Alta Performance" },
-              { code: "ACRA", name: "AI Conversational Revenue Agents" },
-              { code: "IRGF", name: "Internal Revenue Growth Framework" },
-              { code: "CICA", name: "Customer Intelligence & CRM Architecture" },
-              { code: "LRA", name: "Lifecycle Relationship Automation" },
-              { code: "IRE", name: "Incentivized Referral Engine" },
-              { code: "SCPS", name: "Strategic Content Performance System" },
-              { code: "MCAF", name: "Multi-Channel Acquisition Framework" },
-              { code: "AIVGL", name: "AI Video Generation Lab" },
-              { code: "VBIS", name: "Virtual Brand Influencer System" },
+              { code: "ADHP", name: "Arquitetura Digital de Alta Performance", desc: "Desenvolvimento de sites e sistemas focados em conversão e escala." },
+              { code: "ACRA", name: "AI Conversational Revenue Agents", desc: "Agentes de IA para ligações, WhatsApp e mensagens." },
+              { code: "IRGF", name: "Internal Revenue Growth Framework", desc: "Estratégias internas de geração de receita sem dependência de tráfego." },
+              { code: "CICA", name: "Customer Intelligence & CRM Architecture", desc: "Implementação de CRM e inteligência de dados." },
+              { code: "LRA", name: "Lifecycle Relationship Automation", desc: "Sistemas de relacionamento e retenção." },
+              { code: "IRE", name: "Incentivized Referral Engine", desc: "Sistema de indicação incentivada e escalável." },
+              { code: "SCPS", name: "Strategic Content Performance System", desc: "Conteúdo estratégico com foco em demanda e conversão." },
+              { code: "MCAF", name: "Multi-Channel Acquisition Framework", desc: "Gestão de anúncios com foco em ROI." },
+              { code: "AIVGL", name: "AI Video Generation Lab", desc: "Criação de vídeos com IA para escala criativa." },
+              { code: "VBIS", name: "Virtual Brand Influencer System", desc: "Influenciadoras virtuais com IA para marcas." },
             ].map((service) => (
               <div
                 key={service.code}
-                className="bg-card border border-border p-6 hover:border-primary/50"
+                className="bg-card border border-border p-8 hover:border-primary/50"
               >
                 <p className="text-xs font-semibold text-primary tracking-wider mb-3">
                   {service.code}
                 </p>
-                <h3 className="text-foreground font-medium leading-snug">
+                <h3 className="text-lg text-foreground font-medium mb-2">
                   {service.name}
                 </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {service.desc}
+                </p>
               </div>
             ))}
           </div>
