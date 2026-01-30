@@ -1,144 +1,149 @@
 const Index = () => {
+  const whatsappLink = "http://wa.me/62994484199";
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="min-h-screen flex items-center justify-center px-6 py-24">
-        <div className="max-w-3xl text-center">
-          <p className="text-lg md:text-xl text-muted-foreground mb-6">
-            A maioria das empresas não executa nem duas ações de marketing ao mesmo tempo.
-          </p>
-          <p className="text-muted-foreground mb-2">Algumas não fazem nada.</p>
-          <p className="text-muted-foreground mb-8">As que fazem, fazem tudo de forma genérica.</p>
-          <p className="text-xl md:text-2xl text-foreground font-medium mb-2">
-            Quem não executa marketing todos os dias está, na prática,
-          </p>
-          <p className="text-xl md:text-2xl text-foreground font-medium mb-12">
-            aceitando crescer menos do que poderia.
-          </p>
-          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
-            A ND Digital constrói sistemas completos de crescimento,
-          </h1>
-          <p className="text-xl md:text-2xl text-primary mb-10">
-            conectando marketing, vendas e tecnologia.
-          </p>
-          <button className="px-6 py-3 text-sm font-medium bg-primary text-primary-foreground hover:opacity-90">
-            Quero estruturar meu crescimento
-          </button>
+      <section className="min-h-screen flex items-center px-6 py-32">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                A maioria das empresas não executa nem duas ações de marketing ao mesmo tempo.
+                <span className="block mt-2">Algumas não fazem nada.</span>
+                <span className="block">As que fazem, fazem tudo de forma genérica.</span>
+              </p>
+              <div className="border-l-2 border-primary pl-6 mb-10">
+                <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
+                  Quem não executa marketing todos os dias está, na prática,
+                  <span className="block">aceitando crescer menos do que poderia.</span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+                A ND Digital constrói sistemas completos de crescimento,
+              </h1>
+              <p className="text-xl md:text-2xl text-primary font-medium mb-10">
+                conectando marketing, vendas e tecnologia.
+              </p>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90"
+              >
+                Quero estruturar meu crescimento
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Problema */}
-      <section className="py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-            O problema não é falta de ferramenta.
-          </h2>
-          <p className="text-xl text-primary">
-            É falta de sistema.
-          </p>
+      <section className="py-32 px-6 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+              O problema não é falta de ferramenta.
+            </h2>
+            <div className="lg:text-right">
+              <p className="text-3xl md:text-4xl text-primary font-semibold">
+                É falta de sistema.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Posicionamento */}
-      <section className="py-24 px-6 bg-card">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-muted-foreground mb-4">
-            Agências tradicionais executam tarefas.
-          </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
-            Nós construímos infraestrutura.
-          </h2>
+      <section className="py-32 px-6 bg-card">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <p className="text-xl text-muted-foreground">
+              Agências tradicionais executam tarefas.
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+              Nós construímos infraestrutura.
+            </h2>
+          </div>
         </div>
       </section>
 
       {/* Serviços */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">ADHP</p>
-              <h3 className="text-foreground font-medium">Arquitetura Digital de Alta Performance</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">ACRA</p>
-              <h3 className="text-foreground font-medium">AI Conversational Revenue Agents</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">IRGF</p>
-              <h3 className="text-foreground font-medium">Internal Revenue Growth Framework</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">CICA</p>
-              <h3 className="text-foreground font-medium">Customer Intelligence & CRM Architecture</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">LRA</p>
-              <h3 className="text-foreground font-medium">Lifecycle Relationship Automation</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">IRE</p>
-              <h3 className="text-foreground font-medium">Incentivized Referral Engine</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">SCPS</p>
-              <h3 className="text-foreground font-medium">Strategic Content Performance System</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">MCAF</p>
-              <h3 className="text-foreground font-medium">Multi-Channel Acquisition Framework</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">AIVGL</p>
-              <h3 className="text-foreground font-medium">AI Video Generation Lab</h3>
-            </div>
-            <div className="border border-border p-6">
-              <p className="text-xs text-primary mb-1">VBIS</p>
-              <h3 className="text-foreground font-medium">Virtual Brand Influencer System</h3>
-            </div>
+      <section className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { code: "ADHP", name: "Arquitetura Digital de Alta Performance" },
+              { code: "ACRA", name: "AI Conversational Revenue Agents" },
+              { code: "IRGF", name: "Internal Revenue Growth Framework" },
+              { code: "CICA", name: "Customer Intelligence & CRM Architecture" },
+              { code: "LRA", name: "Lifecycle Relationship Automation" },
+              { code: "IRE", name: "Incentivized Referral Engine" },
+              { code: "SCPS", name: "Strategic Content Performance System" },
+              { code: "MCAF", name: "Multi-Channel Acquisition Framework" },
+              { code: "AIVGL", name: "AI Video Generation Lab" },
+              { code: "VBIS", name: "Virtual Brand Influencer System" },
+            ].map((service) => (
+              <div
+                key={service.code}
+                className="bg-card border border-border p-6 hover:border-primary/50"
+              >
+                <p className="text-xs font-semibold text-primary tracking-wider mb-3">
+                  {service.code}
+                </p>
+                <h3 className="text-foreground font-medium leading-snug">
+                  {service.name}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Números */}
-      <section className="py-24 px-6 bg-card">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
-            <div>
-              <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">06</p>
-              <p className="text-xs text-muted-foreground">anos de mercado</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">R$ 9M</p>
-              <p className="text-xs text-muted-foreground">gerenciados</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">R$ 25M</p>
-              <p className="text-xs text-muted-foreground">gerados</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">+170</p>
-              <p className="text-xs text-muted-foreground">clientes</p>
-            </div>
-            <div className="col-span-2 md:col-span-1">
-              <p className="text-3xl md:text-4xl font-semibold text-primary mb-1">+100M</p>
-              <p className="text-xs text-muted-foreground">pessoas alcançadas</p>
-            </div>
+      <section className="py-32 px-6 bg-card">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[
+              { value: "06", label: "anos de mercado" },
+              { value: "R$ 9M", label: "gerenciados" },
+              { value: "R$ 25M", label: "gerados" },
+              { value: "+170", label: "clientes" },
+              { value: "+100M", label: "pessoas alcançadas" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-background border border-border p-8 text-center"
+              >
+                <p className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
+      <section className="py-32 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Crescimento não acontece por acaso.
           </h2>
-          <p className="text-muted-foreground mb-10">
+          <p className="text-xl text-muted-foreground mb-12">
             Ele é construído com método, execução diária e sistemas.
           </p>
-          <button className="px-6 py-3 text-sm font-medium bg-primary text-primary-foreground hover:opacity-90">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-5 text-base font-semibold bg-primary text-primary-foreground hover:opacity-90"
+          >
             Quero um diagnóstico estratégico
-          </button>
+          </a>
         </div>
       </section>
     </div>
