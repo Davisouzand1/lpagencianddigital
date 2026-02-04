@@ -71,9 +71,11 @@ const Index = () => {
                 <span className="block text-muted-foreground/80">As que fazem, fazem tudo de forma genérica.</span>
               </p>
               <div className="border-l-2 border-primary pl-6 mb-10 bg-gradient-to-r from-primary/5 to-transparent py-4">
-                <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
+                <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">
                   Quem não executa marketing todos os dias está, na prática,
-                  <span className="block text-primary">aceitando crescer menos do que poderia.</span>
+                </p>
+                <p className="text-base md:text-lg text-primary font-medium leading-relaxed">
+                  aceitando crescer menos do que poderia.
                 </p>
               </div>
             </div>
