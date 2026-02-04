@@ -22,16 +22,16 @@ const Index = () => {
   const whatsappLink = "http://wa.me/62994484199";
 
   const services = [
-    { code: "ADHP", name: "Arquitetura Digital de Alta Performance", desc: "Desenvolvimento de sites e sistemas focados em conversão e escala.", icon: Globe },
-    { code: "ACRA", name: "AI Conversational Revenue Agents", desc: "Agentes de IA para ligações, WhatsApp e mensagens.", icon: MessageSquare },
-    { code: "IRGF", name: "Internal Revenue Growth Framework", desc: "Estratégias internas de geração de receita sem dependência de tráfego.", icon: TrendingUp },
-    { code: "CICA", name: "Customer Intelligence & CRM Architecture", desc: "Implementação de CRM e inteligência de dados.", icon: Database },
-    { code: "LRA", name: "Lifecycle Relationship Automation", desc: "Sistemas de relacionamento e retenção.", icon: RefreshCw },
-    { code: "IRE", name: "Incentivized Referral Engine", desc: "Sistema de indicação incentivada e escalável.", icon: Users },
-    { code: "SCPS", name: "Strategic Content Performance System", desc: "Conteúdo estratégico com foco em demanda e conversão.", icon: FileText },
-    { code: "MCAF", name: "Multi-Channel Acquisition Framework", desc: "Gestão de anúncios com foco em ROI.", icon: Megaphone },
-    { code: "AIVGL", name: "AI Video Generation Lab", desc: "Criação de vídeos com IA para escala criativa.", icon: Video },
-    { code: "VBIS", name: "Virtual Brand Influencer System", desc: "Influenciadoras virtuais com IA para marcas.", icon: Sparkles },
+    { code: "ADHP", name: "Arquitetura Digital de Alta Performance", translation: "Digital High Performance Architecture", desc: "Desenvolvimento de sites e sistemas focados em conversão e escala.", icon: Globe },
+    { code: "ACRA", name: "AI Conversational Revenue Agents", translation: "Agentes de Receita Conversacional com IA", desc: "Agentes de IA para ligações, WhatsApp e mensagens.", icon: MessageSquare },
+    { code: "IRGF", name: "Internal Revenue Growth Framework", translation: "Framework de Crescimento de Receita Interna", desc: "Estratégias internas de geração de receita sem dependência de tráfego.", icon: TrendingUp },
+    { code: "CICA", name: "Customer Intelligence & CRM Architecture", translation: "Inteligência de Clientes e Arquitetura CRM", desc: "Implementação de CRM e inteligência de dados.", icon: Database },
+    { code: "LRA", name: "Lifecycle Relationship Automation", translation: "Automação de Relacionamento no Ciclo de Vida", desc: "Sistemas de relacionamento e retenção.", icon: RefreshCw },
+    { code: "IRE", name: "Incentivized Referral Engine", translation: "Motor de Indicação Incentivada", desc: "Sistema de indicação incentivada e escalável.", icon: Users },
+    { code: "SCPS", name: "Strategic Content Performance System", translation: "Sistema de Performance de Conteúdo Estratégico", desc: "Conteúdo estratégico com foco em demanda e conversão.", icon: FileText },
+    { code: "MCAF", name: "Multi-Channel Acquisition Framework", translation: "Framework de Aquisição Multicanal", desc: "Gestão de anúncios com foco em ROI.", icon: Megaphone },
+    { code: "AIVGL", name: "AI Video Generation Lab", translation: "Laboratório de Geração de Vídeos com IA", desc: "Criação de vídeos com IA para escala criativa.", icon: Video },
+    { code: "VBIS", name: "Virtual Brand Influencer System", translation: "Sistema de Influenciadores Virtuais de Marca", desc: "Influenciadoras virtuais com IA para marcas.", icon: Sparkles },
   ];
 
   const stats = [
@@ -164,9 +164,12 @@ const Index = () => {
                         {service.code}
                       </p>
                     </div>
-                    <h3 className="text-lg text-foreground font-semibold mb-2">
+                    <h3 className="text-lg text-foreground font-semibold mb-1">
                       {service.name}
                     </h3>
+                    <p className="text-xs text-primary/70 mb-3 italic">
+                      {service.translation}
+                    </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {service.desc}
                     </p>
