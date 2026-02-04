@@ -79,23 +79,26 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="order-1 lg:order-2">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
-                A ND Digital constrói 
-                <span className="text-primary"> ecossistema completo</span> de crescimento
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+                A ND Digital constrói<br />
+                <span className="text-primary">ecossistema completo</span><br />
+                de crescimento
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-10">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium mb-10">
                 conectando <span className="text-primary">marketing</span>, <span className="text-primary">vendas</span> e <span className="text-primary">tecnologia</span>.
               </p>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
-              >
-                Quero estruturar meu crescimento
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </a>
+              <div className="flex justify-center lg:justify-center">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
+                >
+                  Quero estruturar meu crescimento
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
