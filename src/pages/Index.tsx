@@ -16,6 +16,7 @@ import {
   Eye,
   ArrowRight
 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const whatsappLink = "http://wa.me/62994484199";
@@ -50,8 +51,13 @@ const Index = () => {
       <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="fixed bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
 
+      {/* Logo Header */}
+      <header className="w-full py-8 px-6 flex justify-center relative z-10">
+        <img src={logo} alt="ND Digital" className="h-16 md:h-20 object-contain" />
+      </header>
+
       {/* Hero */}
-      <section className="min-h-screen flex items-center px-6 py-32 relative">
+      <section className="flex items-center px-6 py-16 relative">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -94,7 +100,7 @@ const Index = () => {
       </section>
 
       {/* Problema */}
-      <section className="py-32 px-6 border-t border-border relative">
+      <section className="py-20 px-6 border-t border-border relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
@@ -113,7 +119,7 @@ const Index = () => {
       </section>
 
       {/* Posicionamento */}
-      <section className="py-32 px-6 bg-card relative">
+      <section className="py-20 px-6 bg-card relative">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -130,7 +136,7 @@ const Index = () => {
       </section>
 
       {/* Serviços */}
-      <section className="py-32 px-6 relative">
+      <section className="py-20 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
@@ -173,7 +179,7 @@ const Index = () => {
       </section>
 
       {/* Números */}
-      <section className="py-32 px-6 bg-card">
+      <section className="py-20 px-6 bg-card">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {stats.map((stat) => {
@@ -198,7 +204,7 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-6 relative">
+      <section className="py-20 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8">
