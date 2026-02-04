@@ -164,12 +164,9 @@ const Index = () => {
                         {service.code}
                       </p>
                     </div>
-                    <h3 className="text-lg text-foreground font-semibold mb-1">
-                      {service.name}
-                    </h3>
-                    <p className="text-xs text-primary/70 mb-3 italic">
+                    <h3 className="text-lg text-foreground font-semibold mb-2">
                       {service.translation}
-                    </p>
+                    </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {service.desc}
                     </p>
