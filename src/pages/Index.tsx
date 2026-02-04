@@ -52,70 +52,71 @@ const Index = () => {
       <div className="fixed bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Logo Header */}
-      <header className="w-full py-8 px-6 flex justify-center relative z-10">
-        <img src={logo} alt="ND Digital" className="h-16 md:h-20 object-contain" />
+      <header className="w-full py-6 md:py-8 px-4 md:px-6 flex justify-center relative z-10">
+        <img src={logo} alt="ND Digital" className="h-12 md:h-16 lg:h-20 object-contain" />
       </header>
 
       {/* Hero */}
-      <section className="flex items-center px-6 py-16 relative">
+      <section className="flex items-center px-4 md:px-6 py-10 md:py-16 relative">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
+            {/* Mobile: Title first, Desktop: Title on right */}
             <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8">
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-8">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="text-sm text-primary font-medium">Sistema de Crescimento Digital</span>
+                <span className="text-xs md:text-sm text-primary font-medium">Sistema de Crescimento Digital</span>
               </div>
-              <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+              <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                 A maioria das empresas não executa nem duas ações de marketing ao mesmo tempo.
                 <span className="block mt-2 text-muted-foreground/80">Algumas não fazem nada.</span>
                 <span className="block text-muted-foreground/80">As que fazem, fazem tudo igual.</span>
               </p>
-              <div className="border-l-2 border-primary pl-6 mb-10 bg-gradient-to-r from-primary/5 to-transparent py-4">
-                <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">
+              <div className="border-l-2 border-primary pl-4 md:pl-6 mb-8 md:mb-10 bg-gradient-to-r from-primary/5 to-transparent py-3 md:py-4">
+                <p className="text-sm md:text-base lg:text-lg text-foreground font-medium leading-relaxed">
                   Quem não executa marketing todos os dias está, na prática,
                 </p>
-                <p className="text-base md:text-lg text-primary font-medium leading-relaxed">
+                <p className="text-sm md:text-base lg:text-lg text-primary font-medium leading-relaxed">
                   aceitando crescer menos do que poderia.
                 </p>
               </div>
             </div>
-            <div className="order-1 lg:order-2">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-8 leading-tight">
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground mb-4 md:mb-8 leading-tight">
                 A ND Digital constrói<br />
                 <span className="text-primary">ecossistema completo</span><br />
                 de crescimento
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-medium">
                 conectando <span className="text-primary">marketing</span>, <span className="text-primary">vendas</span> e <span className="text-primary">tecnologia</span>.
               </p>
             </div>
           </div>
-          <div className="flex justify-center mt-16">
+          <div className="flex justify-center mt-10 md:mt-16">
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
+              className="group inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
             >
               Quero estruturar meu crescimento
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>
       </section>
 
       {/* Problema */}
-      <section className="py-20 px-6 border-t border-border relative">
+      <section className="py-12 md:py-20 px-4 md:px-6 border-t border-border relative">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative">
-              <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent" />
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block" />
+              <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
                 O problema não é falta de ferramenta.
               </h2>
             </div>
             <div className="lg:text-right">
-              <p className="text-4xl md:text-5xl lg:text-6xl text-primary font-bold">
+              <p className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-primary font-bold">
                 É falta de sistema.
               </p>
             </div>
@@ -124,15 +125,15 @@ const Index = () => {
       </section>
 
       {/* Posicionamento */}
-      <section className="py-20 px-6 bg-card relative">
+      <section className="py-12 md:py-20 px-4 md:px-6 bg-card relative">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
         <div className="max-w-7xl mx-auto relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <p className="text-xl md:text-2xl text-muted-foreground">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground">
               Agências tradicionais executam tarefas.
             </p>
             <div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
                 Nós construímos <span className="text-primary">infraestrutura</span>.
               </h2>
             </div>
@@ -141,33 +142,33 @@ const Index = () => {
       </section>
 
       {/* Serviços */}
-      <section className="py-20 px-6 relative">
+      <section className="py-12 md:py-20 px-4 md:px-6 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+          <div className="text-center mb-10 md:mb-16">
+            <span className="inline-block px-3 md:px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3 md:mb-4">
               SOLUÇÕES
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
               Nossos Serviços
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <div
                   key={index}
-                  className="group bg-card border border-border p-6 hover:border-primary/50 transition-all duration-300 hover:bg-card/80 relative overflow-hidden text-center"
+                  className="group bg-card border border-border p-4 md:p-6 hover:border-primary/50 transition-all duration-300 hover:bg-card/80 relative overflow-hidden text-center"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative flex flex-col items-center">
-                    <div className="p-3 bg-primary/10 border border-primary/20 rounded-lg mb-4">
-                      <IconComponent className="w-6 h-6 text-primary" />
+                    <div className="p-2 md:p-3 bg-primary/10 border border-primary/20 rounded-lg mb-3 md:mb-4">
+                      <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
-                    <h3 className="text-base text-foreground font-semibold mb-2">
+                    <h3 className="text-sm md:text-base text-foreground font-semibold mb-1 md:mb-2">
                       {service.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                       {service.desc}
                     </p>
                   </div>
@@ -175,46 +176,46 @@ const Index = () => {
               );
             })}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 md:mt-12">
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
+              className="group inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
             >
               Quero conhecer os serviços
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>
       </section>
 
       {/* Números */}
-      <section className="py-20 px-6 bg-card">
+      <section className="py-12 md:py-20 px-4 md:px-6 bg-card">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <span className="inline-block px-3 md:px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3 md:mb-4">
               RESULTADOS
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
               Nossos Resultados
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
             {stats.map((stat) => {
               const IconComponent = stat.icon;
               return (
                 <div
                   key={stat.label}
-                  className="bg-background border border-border p-8 flex flex-col items-center justify-center aspect-square"
+                  className="bg-background border border-border p-4 md:p-8 flex flex-col items-center justify-center aspect-square"
                 >
-                  <div className="flex items-center justify-center p-3 bg-primary/10 border border-primary/20 rounded-lg mb-6">
-                    <IconComponent className="w-5 h-5 text-primary" />
+                  <div className="flex items-center justify-center p-2 md:p-3 bg-primary/10 border border-primary/20 rounded-lg mb-3 md:mb-6">
+                    <IconComponent className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                   </div>
-                  <p className="text-4xl md:text-5xl font-bold text-primary mb-3 text-center">
+                  <p className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-1 md:mb-3 text-center">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-muted-foreground text-center">{stat.label}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground text-center">{stat.label}</p>
                 </div>
               );
             })}
@@ -223,27 +224,27 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-6 relative">
+      <section className="py-12 md:py-20 px-4 md:px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
         <div className="max-w-4xl mx-auto text-center relative">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">Pronto para crescer?</span>
+          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-8">
+            <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+            <span className="text-xs md:text-sm text-primary font-medium">Pronto para crescer?</span>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-3 md:mb-4 leading-tight">
             Crescimento não acontece por acaso.
           </h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto">
             Ele é construído com <span className="text-primary">método</span>, <span className="text-primary">execução diária</span> e <span className="text-primary">sistemas</span>.
           </p>
           <a
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-10 py-5 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
+            className="group inline-flex items-center gap-2 md:gap-3 px-8 md:px-10 py-4 md:py-5 text-sm md:text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
           >
             Quero um diagnóstico estratégico
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </section>
