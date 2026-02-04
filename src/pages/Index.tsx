@@ -82,7 +82,7 @@ const Index = () => {
             <div className="order-1 lg:order-2">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                 A ND Digital constrói 
-                <span className="text-primary"> sistemas completos</span> de crescimento,
+                <span className="text-primary"> ecossistema completo</span> de crescimento
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-10">
                 conectando <span className="text-primary">marketing</span>, <span className="text-primary">vendas</span> e <span className="text-primary">tecnologia</span>.
