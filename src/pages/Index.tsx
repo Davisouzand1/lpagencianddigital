@@ -59,7 +59,7 @@ const Index = () => {
       {/* Hero */}
       <section className="flex items-center px-6 py-16 relative">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
@@ -68,7 +68,7 @@ const Index = () => {
               <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
                 A maioria das empresas não executa nem duas ações de marketing ao mesmo tempo.
                 <span className="block mt-2 text-muted-foreground/80">Algumas não fazem nada.</span>
-                <span className="block text-muted-foreground/80">As que fazem, fazem tudo de forma genérica.</span>
+                <span className="block text-muted-foreground/80">As que fazem, fazem tudo igual.</span>
               </p>
               <div className="border-l-2 border-primary pl-6 mb-10 bg-gradient-to-r from-primary/5 to-transparent py-4">
                 <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">
