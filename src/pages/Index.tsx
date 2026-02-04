@@ -79,13 +79,13 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="order-1 lg:order-2 text-center lg:text-left">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+            <div className="order-1 lg:order-2">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-8 leading-tight">
                 A ND Digital constrói<br />
                 <span className="text-primary">ecossistema completo</span><br />
                 de crescimento
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-medium">
+              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
                 conectando <span className="text-primary">marketing</span>, <span className="text-primary">vendas</span> e <span className="text-primary">tecnologia</span>.
               </p>
             </div>
