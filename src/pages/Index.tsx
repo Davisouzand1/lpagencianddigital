@@ -170,6 +170,17 @@ const Index = () => {
               );
             })}
           </div>
+          <div className="text-center mt-12">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
+            >
+              Quero conhecer os serviços
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
         </div>
       </section>
 
