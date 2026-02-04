@@ -37,7 +37,7 @@ const Index = () => {
   const stats = [
     { value: "06", label: "anos de mercado", icon: Calendar },
     { value: "R$ 9M", label: "gerenciados", icon: DollarSign },
-    { value: "R$ 25M", label: "em vendas", icon: Target },
+    { value: "R$\u00A025M", label: "em vendas", icon: Target },
     { value: "+170", label: "clientes atendidos", icon: UserCheck },
     { value: "+100M", label: "pessoas alcançadas", icon: Eye },
   ];
