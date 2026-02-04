@@ -147,24 +147,19 @@ const Index = () => {
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <div
-                  key={service.code}
-                  className="group bg-card border border-border p-8 hover:border-primary/50 transition-all duration-300 hover:bg-card/80 relative overflow-hidden"
+                  key={index}
+                  className="group bg-card border border-border p-6 hover:border-primary/50 transition-all duration-300 hover:bg-card/80 relative overflow-hidden text-center"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 bg-primary/10 border border-primary/20 rounded-lg">
-                        <IconComponent className="w-6 h-6 text-primary" />
-                      </div>
-                      <p className="text-xs font-semibold text-primary tracking-wider">
-                        {service.code}
-                      </p>
+                  <div className="relative flex flex-col items-center">
+                    <div className="p-3 bg-primary/10 border border-primary/20 rounded-lg mb-4">
+                      <IconComponent className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="text-lg text-foreground font-semibold mb-2">
+                    <h3 className="text-base text-foreground font-semibold mb-2">
                       {service.translation}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
