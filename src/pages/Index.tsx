@@ -173,27 +173,23 @@ const Index = () => {
       </section>
 
       {/* Números */}
-      <section className="py-32 px-6 bg-card relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        <div className="max-w-7xl mx-auto relative">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <section className="py-32 px-6 bg-card">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {stats.map((stat) => {
               const IconComponent = stat.icon;
               return (
                 <div
                   key={stat.label}
-                  className="group bg-background border border-border p-8 text-center hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+                  className="bg-background border border-border p-8 flex flex-col items-center justify-center aspect-square"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="inline-flex items-center justify-center p-3 bg-primary/10 border border-primary/20 rounded-lg mb-4">
-                      <IconComponent className="w-5 h-5 text-primary" />
-                    </div>
-                    <p className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                      {stat.value}
-                    </p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <div className="flex items-center justify-center p-3 bg-primary/10 border border-primary/20 rounded-lg mb-6">
+                    <IconComponent className="w-5 h-5 text-primary" />
                   </div>
+                  <p className="text-4xl md:text-5xl font-bold text-primary mb-3 text-center">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-muted-foreground text-center">{stat.label}</p>
                 </div>
               );
             })}
