@@ -181,6 +181,14 @@ const Index = () => {
       {/* Números */}
       <section className="py-20 px-6 bg-card">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+              RESULTADOS
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Nossos Resultados
+            </h2>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {stats.map((stat) => {
               const IconComponent = stat.icon;
