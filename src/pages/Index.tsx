@@ -85,21 +85,21 @@ const Index = () => {
                 <span className="text-primary">ecossistema completo</span><br />
                 de crescimento
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-medium mb-10">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 conectando <span className="text-primary">marketing</span>, <span className="text-primary">vendas</span> e <span className="text-primary">tecnologia</span>.
               </p>
-              <div className="flex justify-center lg:justify-center">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
-                >
-                  Quero estruturar meu crescimento
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </a>
-              </div>
             </div>
+          </div>
+          <div className="flex justify-center mt-16">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-4 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:gap-4"
+            >
+              Quero estruturar meu crescimento
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
       </section>
