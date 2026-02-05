@@ -44,16 +44,28 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background grid effect */}
-      <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
+      {/* Tech Background Grid */}
+      <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       
-      {/* Gradient orbs */}
-      <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="fixed bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
+      {/* Animated diagonal lines */}
+      <div className="fixed inset-0 opacity-[0.02] pointer-events-none">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_35px,rgba(255,255,255,0.1)_35px,rgba(255,255,255,0.1)_70px)]" />
+      </div>
+      
+      {/* Animated Gradient orbs */}
+      <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
+      <div className="fixed bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[150px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '1s' }} />
+      
+      {/* Floating tech dots */}
+      <div className="fixed top-20 left-[10%] w-2 h-2 bg-primary/30 rounded-full pointer-events-none animate-float" />
+      <div className="fixed top-40 right-[15%] w-1.5 h-1.5 bg-primary/20 rounded-full pointer-events-none animate-float" style={{ animationDelay: '1s' }} />
+      <div className="fixed bottom-32 left-[20%] w-1 h-1 bg-primary/25 rounded-full pointer-events-none animate-float" style={{ animationDelay: '2s' }} />
+      <div className="fixed bottom-48 right-[25%] w-2 h-2 bg-primary/15 rounded-full pointer-events-none animate-float" style={{ animationDelay: '3s' }} />
 
       {/* Logo Header */}
       <header className="w-full py-6 md:py-8 px-4 md:px-6 flex justify-center relative z-10">
-        <img src={logo} alt="ND Digital" className="h-12 md:h-16 lg:h-20 object-contain" />
+        <img src={logo} alt="ND Digital" className="h-12 md:h-16 lg:h-20 object-contain animate-fade-up" />
       </header>
 
       {/* Hero */}
@@ -61,8 +73,8 @@ const Index = () => {
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
             {/* Mobile: Title first, Desktop: Title on right */}
-            <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-8">
+            <div className="order-2 lg:order-1 animate-fade-up stagger-2">
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-8 animate-shimmer">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 <span className="text-xs md:text-sm text-primary font-medium">Sistema de Crescimento Digital</span>
               </div>
@@ -80,7 +92,7 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="order-1 lg:order-2 text-center lg:text-left">
+            <div className="order-1 lg:order-2 text-center lg:text-left animate-fade-up stagger-1">
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground mb-4 md:mb-8 leading-tight">
                 A ND Digital constrói<br />
                 <span className="text-primary">ecossistema completo</span><br />
@@ -158,12 +170,13 @@ const Index = () => {
               return (
                 <div
                   key={index}
-                  className="group bg-card border border-border p-4 md:p-6 hover:border-primary/50 transition-all duration-300 hover:bg-card/80 relative overflow-hidden text-center"
+                  className="group bg-card border border-border p-4 md:p-6 hover:border-primary/50 transition-all duration-300 hover:bg-card/80 relative overflow-hidden text-center animate-fade-up"
+                  style={{ animationDelay: `${0.1 * (index % 4)}s` }}
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative flex flex-col items-center">
-                    <div className="p-2 md:p-3 bg-primary/10 border border-primary/20 rounded-lg mb-3 md:mb-4">
-                      <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    <div className="p-2 md:p-3 bg-primary/10 border border-primary/20 rounded-lg mb-3 md:mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                      <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:rotate-12" />
                     </div>
                     <h3 className="text-sm md:text-base text-foreground font-semibold mb-1 md:mb-2">
                       {service.name}
@@ -202,15 +215,16 @@ const Index = () => {
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-            {stats.map((stat) => {
+            {stats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
                 <div
                   key={stat.label}
-                  className="bg-background border border-border p-4 md:p-8 flex flex-col items-center justify-center aspect-square"
+                  className="group bg-background border border-border p-4 md:p-8 flex flex-col items-center justify-center aspect-square animate-fade-up hover:border-primary/30 transition-all duration-300"
+                  style={{ animationDelay: `${0.1 * index}s` }}
                 >
-                  <div className="flex items-center justify-center p-2 md:p-3 bg-primary/10 border border-primary/20 rounded-lg mb-3 md:mb-6">
-                    <IconComponent className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                  <div className="flex items-center justify-center p-2 md:p-3 bg-primary/10 border border-primary/20 rounded-lg mb-3 md:mb-6 transition-transform duration-300 group-hover:scale-110">
+                    <IconComponent className="w-4 h-4 md:w-5 md:h-5 text-primary animate-float" style={{ animationDelay: `${index * 0.5}s` }} />
                   </div>
                   <p className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-1 md:mb-3 text-center">
                     {stat.value}
