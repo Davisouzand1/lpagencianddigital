@@ -1,11 +1,6 @@
 import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import {
-  Megaphone,
-  TrendingUp,
-  Target,
-  PenTool,
-  Brain,
-  BarChart3,
   Clock,
   User,
   BookOpen,
@@ -15,97 +10,42 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const categories = [
-  { name: "Marketing Digital", icon: Megaphone, count: 85 },
-  { name: "Vendas", icon: TrendingUp, count: 62 },
-  { name: "Anúncios", icon: Target, count: 47 },
-  { name: "Conteúdo", icon: PenTool, count: 73 },
-  { name: "Inteligência Artificial", icon: Brain, count: 56 },
-  { name: "Analytics", icon: BarChart3, count: 39 },
-];
-
-const featuredArticle = {
-  title: "Como a IA Está Revolucionando o Marketing Digital em 2026",
-  description:
-    "Descubra as estratégias mais avançadas de inteligência artificial aplicadas ao marketing digital e como empresas estão multiplicando seus resultados com automação inteligente.",
-  category: "Inteligência Artificial",
-  author: "Equipe ND Digital",
-  readTime: "12 min",
-  date: "05 Fev 2026",
-  image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-};
-
-const featuredArticles = [
-  {
-    title: "5 Estratégias de Anúncios que Geram ROI de 10x",
-    description: "Aprenda técnicas comprovadas para maximizar o retorno dos seus investimentos em tráfego pago.",
-    category: "Anúncios",
-    author: "Equipe ND Digital",
-    readTime: "8 min",
-    date: "03 Fev 2026",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-  },
-  {
-    title: "CRM Inteligente: O Segredo das Empresas que Mais Crescem",
-    description: "Como implementar um CRM que realmente gera resultados e retém clientes.",
-    category: "Vendas",
-    author: "Equipe ND Digital",
-    readTime: "10 min",
-    date: "01 Fev 2026",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-  },
-];
-
-const latestArticles = [
-  {
-    title: "Automação de WhatsApp: Guia Completo 2026",
-    category: "Marketing Digital",
-    date: "30 Jan 2026",
-    readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=400&q=80",
-  },
-  {
-    title: "Como Criar Conteúdo que Converte em Vendas",
-    category: "Conteúdo",
-    date: "28 Jan 2026",
-    readTime: "9 min",
-    image: "https://images.unsplash.com/photo-1542435503-956c469947f6?w=400&q=80",
-  },
-  {
-    title: "Google Ads vs Meta Ads: Qual Escolher?",
-    category: "Anúncios",
-    date: "25 Jan 2026",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&q=80",
-  },
-  {
-    title: "Métricas que Todo Gestor de Marketing Precisa Acompanhar",
-    category: "Analytics",
-    date: "22 Jan 2026",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80",
-  },
-  {
-    title: "Influenciadores Virtuais: O Futuro do Marketing",
-    category: "Inteligência Artificial",
-    date: "20 Jan 2026",
-    readTime: "11 min",
-    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=400&q=80",
-  },
-  {
-    title: "Funil de Vendas: Estratégia de A a Z",
-    category: "Vendas",
-    date: "18 Jan 2026",
-    readTime: "14 min",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=80",
-  },
-];
+import {
+  categories,
+  getFeaturedArticles,
+  getLatestArticles,
+  getArticlesByCategory,
+  allArticles,
+} from "@/data/blog-data";
 
 const Blog = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const activeCategory = searchParams.get("categoria");
+
+  const setActiveCategory = (category: string | null) => {
+    if (category) {
+      setSearchParams({ categoria: category });
+    } else {
+      setSearchParams({});
+    }
+  };
+
+  const featuredArticles = getFeaturedArticles();
+  const latestArticles = getLatestArticles();
+
+  // Filtered articles based on active category
+  const filteredFeatured = activeCategory
+    ? featuredArticles.filter((a) => a.category === activeCategory)
+    : featuredArticles;
+
+  const filteredLatest = activeCategory
+    ? getArticlesByCategory(activeCategory).filter((a) => !a.featured)
+    : latestArticles;
+
+  const allFiltered = activeCategory ? getArticlesByCategory(activeCategory) : null;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -115,6 +55,8 @@ const Blog = () => {
       setTimeout(() => setIsSubscribed(false), 4000);
     }
   };
+
+  const mainFeatured = featuredArticles[0];
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -195,71 +137,54 @@ const Blog = () => {
               );
             })}
           </div>
+
+          {/* Active filter indicator */}
+          {activeCategory && (
+            <div className="text-center mt-6">
+              <span className="text-sm text-muted-foreground">
+                Mostrando artigos de{" "}
+                <span className="text-primary font-semibold">{activeCategory}</span>
+              </span>
+              <button
+                onClick={() => setActiveCategory(null)}
+                className="ml-3 text-sm text-primary hover:underline"
+              >
+                Limpar filtro
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Featured Articles */}
-      <section className="py-10 md:py-16 px-4 md:px-6 bg-card relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3">
-              DESTAQUE
-            </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground">Artigos em Destaque</h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
-            {/* Main Featured */}
-            <a href="#" className="group block bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300">
-              <div className="relative h-48 md:h-64 overflow-hidden">
-                <img
-                  src={featuredArticle.image}
-                  alt={featuredArticle.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className="absolute top-3 left-3 flex gap-2">
-                  <span className="px-2.5 py-1 bg-primary text-primary-foreground text-[10px] md:text-xs font-semibold rounded">
-                    Em Destaque
-                  </span>
-                  <span className="px-2.5 py-1 bg-background/80 text-foreground text-[10px] md:text-xs font-medium rounded backdrop-blur-sm">
-                    {featuredArticle.category}
-                  </span>
-                </div>
-              </div>
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {featuredArticle.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{featuredArticle.description}</p>
-                <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><User className="w-3 h-3" />{featuredArticle.author}</span>
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{featuredArticle.readTime}</span>
-                </div>
-              </div>
-            </a>
-
-            {/* Side Featured */}
-            <div className="flex flex-col gap-4 md:gap-6">
-              {featuredArticles.map((article, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="group flex flex-col sm:flex-row bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300 flex-1"
+      {/* When filtering, show all filtered articles in a grid */}
+      {activeCategory && allFiltered && allFiltered.length > 0 && (
+        <section className="py-10 md:py-16 px-4 md:px-6 bg-card relative">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-8">
+              {activeCategory} <span className="text-muted-foreground text-lg font-normal">({allFiltered.length} artigos)</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {allFiltered.map((article, i) => (
+                <Link
+                  key={article.slug}
+                  to={`/blog/${article.slug}`}
+                  className="group bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300 animate-fade-up"
+                  style={{ animationDelay: `${0.1 * i}s` }}
                 >
-                  <div className="relative w-full sm:w-40 md:w-48 h-40 sm:h-auto overflow-hidden flex-shrink-0">
+                  <div className="relative h-40 md:h-48 overflow-hidden">
                     <img
                       src={article.image}
                       alt={article.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
                     />
-                    <span className="absolute top-2 left-2 px-2 py-0.5 bg-background/80 text-foreground text-[10px] font-medium rounded backdrop-blur-sm">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary/90 text-primary-foreground text-[10px] font-semibold rounded">
                       {article.category}
                     </span>
                   </div>
-                  <div className="p-4 flex flex-col justify-center">
-                    <h3 className="text-sm md:text-base font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                  <div className="p-4">
+                    <h3 className="text-sm md:text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                       {article.title}
                     </h3>
                     <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{article.description}</p>
@@ -268,12 +193,96 @@ const Blog = () => {
                       <span>{article.date}</span>
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Featured Articles (hidden when filtering) */}
+      {!activeCategory && (
+        <section className="py-10 md:py-16 px-4 md:px-6 bg-card relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
+          <div className="max-w-7xl mx-auto relative">
+            <div className="text-center mb-8 md:mb-12">
+              <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3">
+                DESTAQUE
+              </span>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground">Artigos em Destaque</h2>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
+              {/* Main Featured */}
+              {mainFeatured && (
+                <Link
+                  to={`/blog/${mainFeatured.slug}`}
+                  className="group block bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300"
+                >
+                  <div className="relative h-48 md:h-64 overflow-hidden">
+                    <img
+                      src={mainFeatured.image}
+                      alt={mainFeatured.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    <div className="absolute top-3 left-3 flex gap-2">
+                      <span className="px-2.5 py-1 bg-primary text-primary-foreground text-[10px] md:text-xs font-semibold rounded">
+                        Em Destaque
+                      </span>
+                      <span className="px-2.5 py-1 bg-background/80 text-foreground text-[10px] md:text-xs font-medium rounded backdrop-blur-sm">
+                        {mainFeatured.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {mainFeatured.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{mainFeatured.description}</p>
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1"><User className="w-3 h-3" />{mainFeatured.author}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{mainFeatured.readTime}</span>
+                    </div>
+                  </div>
+                </Link>
+              )}
+
+              {/* Side Featured */}
+              <div className="flex flex-col gap-4 md:gap-6">
+                {featuredArticles.slice(1).map((article) => (
+                  <Link
+                    key={article.slug}
+                    to={`/blog/${article.slug}`}
+                    className="group flex flex-col sm:flex-row bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300 flex-1"
+                  >
+                    <div className="relative w-full sm:w-40 md:w-48 h-40 sm:h-auto overflow-hidden flex-shrink-0">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <span className="absolute top-2 left-2 px-2 py-0.5 bg-background/80 text-foreground text-[10px] font-medium rounded backdrop-blur-sm">
+                        {article.category}
+                      </span>
+                    </div>
+                    <div className="p-4 flex flex-col justify-center">
+                      <h3 className="text-sm md:text-base font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{article.description}</p>
+                      <div className="flex items-center gap-3 text-[10px] md:text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{article.readTime}</span>
+                        <span>{article.date}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Newsletter */}
       <section className="py-12 md:py-20 px-4 md:px-6 relative">
@@ -312,61 +321,54 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Latest Articles */}
-      <section className="py-10 md:py-16 px-4 md:px-6 bg-card relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-8 md:mb-12">
-            <div>
-              <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3">
-                RECENTES
-              </span>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground">Últimos Artigos</h2>
+      {/* Latest Articles (hidden when filtering) */}
+      {!activeCategory && (
+        <section className="py-10 md:py-16 px-4 md:px-6 bg-card relative">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-8 md:mb-12">
+              <div>
+                <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3">
+                  RECENTES
+                </span>
+                <h2 className="text-2xl md:text-4xl font-bold text-foreground">Últimos Artigos</h2>
+              </div>
             </div>
-            <a href="#" className="hidden md:inline-flex items-center gap-2 text-sm text-primary font-medium hover:gap-3 transition-all">
-              Ver todos <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {latestArticles.map((article, i) => (
-              <a
-                key={i}
-                href="#"
-                className="group bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300 animate-fade-up"
-                style={{ animationDelay: `${0.1 * i}s` }}
-              >
-                <div className="relative h-40 md:h-48 overflow-hidden">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary/90 text-primary-foreground text-[10px] font-semibold rounded">
-                    {article.category}
-                  </span>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-sm md:text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <div className="flex items-center gap-3 text-[10px] md:text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{article.readTime}</span>
-                    <span>{article.date}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {latestArticles.map((article, i) => (
+                <Link
+                  key={article.slug}
+                  to={`/blog/${article.slug}`}
+                  className="group bg-background border border-border rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300 animate-fade-up"
+                  style={{ animationDelay: `${0.1 * i}s` }}
+                >
+                  <div className="relative h-40 md:h-48 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 bg-primary/90 text-primary-foreground text-[10px] font-semibold rounded">
+                      {article.category}
+                    </span>
                   </div>
-                </div>
-              </a>
-            ))}
+                  <div className="p-4">
+                    <h3 className="text-sm md:text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+                    <div className="flex items-center gap-3 text-[10px] md:text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{article.readTime}</span>
+                      <span>{article.date}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-
-          <div className="text-center mt-8 md:hidden">
-            <a href="#" className="inline-flex items-center gap-2 text-sm text-primary font-medium">
-              Ver todos os artigos <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-12 md:py-20 px-4 md:px-6 relative">
