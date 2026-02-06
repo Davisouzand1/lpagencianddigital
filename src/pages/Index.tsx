@@ -16,7 +16,8 @@ import {
   Eye,
   ArrowRight
 } from "lucide-react";
-import logo from "@/assets/logo.png";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const whatsappLink = "http://wa.me/62994484199";
@@ -63,13 +64,10 @@ const Index = () => {
       <div className="fixed bottom-32 left-[20%] w-1 h-1 bg-primary/25 rounded-full pointer-events-none animate-float" style={{ animationDelay: '2s' }} />
       <div className="fixed bottom-48 right-[25%] w-2 h-2 bg-primary/15 rounded-full pointer-events-none animate-float" style={{ animationDelay: '3s' }} />
 
-      {/* Logo Header */}
-      <header className="w-full py-6 md:py-8 px-4 md:px-6 flex justify-center relative z-10">
-        <img src={logo} alt="ND Digital" className="h-12 md:h-16 lg:h-20 object-contain animate-fade-up" />
-      </header>
+      <Navbar />
 
       {/* Hero */}
-      <section className="flex items-center px-4 md:px-6 py-10 md:py-16 relative">
+      <section id="inicio" className="flex items-center px-4 md:px-6 pt-28 md:pt-36 pb-10 md:pb-16 relative">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
             {/* Mobile: Title first, Desktop: Title on right */}
@@ -154,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* Serviços */}
-      <section className="py-12 md:py-20 px-4 md:px-6 relative">
+      <section id="servicos" className="py-12 md:py-20 px-4 md:px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 md:mb-16">
             <span className="inline-block px-3 md:px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3 md:mb-4">
@@ -204,7 +202,7 @@ const Index = () => {
       </section>
 
       {/* Números */}
-      <section className="py-12 md:py-20 px-4 md:px-6 bg-card">
+      <section id="resultados" className="py-12 md:py-20 px-4 md:px-6 bg-card">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <span className="inline-block px-3 md:px-4 py-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold rounded-full mb-3 md:mb-4">
@@ -262,6 +260,8 @@ const Index = () => {
           </a>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
