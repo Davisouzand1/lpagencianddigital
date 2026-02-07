@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Roadmap from "@/components/Roadmap";
 
 const Index = () => {
   const whatsappLink = "http://wa.me/62994484199";
@@ -150,6 +151,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Roadmap / Método */}
+      <Roadmap />
 
       {/* Serviços */}
       <section id="servicos" className="py-12 md:py-20 px-4 md:px-6 relative">
